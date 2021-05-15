@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>My Currency List</h1>
+
+{% for currency in currencies %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ currency.country_name}}</span>
+      <p>Currency Name: {{ currency.currency_name }}</p>
+      <p>Amount: {{ currency.amount }}</p>
+      <p>Obverse: {{ currency.obverse }}</p>
+      <p>Description: {{ currency.description }}</p>
+    </div>
+    <div>
+    {% if currency.amount > 0 %}
+        <p>Amount 💲: {{ currency.amount }}</p>
+      {% else %}
+        <p>Amount ₵: Coin Currency</p>
+      {% endif %}
+  </div>
+{% endfor %}
+
+{% endblock %}
